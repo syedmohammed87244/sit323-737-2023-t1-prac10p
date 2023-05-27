@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calapp
+  labels:
+    app: calapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: calapp
+  template:
+    metadata:
+      labels:
+        app: calapp
+    spec:
+      containers:
+        - name: calapp
+          image: gcr.io/sit737-23t1-syed-df97ec0/calapp
+          ports:
+            - containerPort: 3000
